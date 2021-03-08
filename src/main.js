@@ -23,4 +23,7 @@ import error from "/src/components/error.js";
 	console.log(await store.getAllPhotographers());
 	console.log(await store.getPhotographersByTag("events"));
 	console.log(await store.getPhotographerById(195));
+	console.log(await store.getAllMedias());
+	console.log(await store.getMediasByPhotographerId(195));
+	console.log(await store.getMediasByTag("events"));
 })();
