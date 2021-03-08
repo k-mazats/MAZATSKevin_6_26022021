@@ -1,29 +1,21 @@
 import Router from "/src/classes/Router.js";
 import DataStore from "/src/classes/DataStore.js";
 
-import home from "/src/components/home.js";
-import about from "/src/components/about.js";
-import contact from "/src/components/contact.js";
-import error from "/src/components/error.js";
+import Home from "/src/classes/components/Home.js";
+import Error from "/src/classes/components/Error.js";
 
 (async () => {
+	const store = new DataStore();
 	const selector = "router-link";
 	const app = document.getElementById("app");
+
 	const routes = {
-		"/": home.init(),
-		"/index.html": home.init(),
-		"/contact": contact.init(),
-		"/about": about.init(),
-		"/error": error.init(),
+		"/": Home.init(await store.getAllPhotographers()),
+		"/index.html": Home.init(await store.getAllPhotographers()),
+		"/photographer/195": Home.init(await store.getPhotographerById(195)),
+		"/category/events": Home.init(await store.getPhotographersByTag("events")),
+		"/error": Error.init(),
 	};
 	const router = new Router(app, selector, routes);
 
-	const store = new DataStore();
-
-	console.log(await store.getAllPhotographers());
-	console.log(await store.getPhotographersByTag("events"));
-	console.log(await store.getPhotographerById(195));
-	console.log(await store.getAllMedias());
-	console.log(await store.getMediasByPhotographerId(195));
-	console.log(await store.getMediasByTag("events"));
 })();
