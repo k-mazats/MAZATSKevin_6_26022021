@@ -1,4 +1,4 @@
-import Nav from "/src/classes/components/Nav.js";
+import PhotographersTags from "/src/classes/components/PhotographersTags.js";
 import PhotographersGrid from "/src/classes/components/PhotographersGrid.js";
 class Home {
 	static init = (tags, photographers) => {
@@ -13,7 +13,7 @@ class Home {
 			</header>
 			<nav aria-label="Photographer categories" class="nav">
 				<ul class="nav__list">
-					${Nav.init(tags)}
+					${PhotographersTags.init("nav",tags)}
 				</ul>
 			</nav>
 			<h1 class="page-title">Nos photographes</h1>

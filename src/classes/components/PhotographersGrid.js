@@ -27,7 +27,7 @@ class PhotographersGrid {
 					<div class="user__categories">
 						<ul class="user__categories-list">
 							<li class="user__categories-item">
-								${PhotographersTags.init(item.tags)}
+								${PhotographersTags.init("grid",item.tags)}
 							</li>
 						</ul>
 					</div>
