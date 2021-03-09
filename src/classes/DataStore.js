@@ -8,6 +8,14 @@ export default class DataStore {
 		const data = await this.getDatas();
 		return data.photographers;
 	};
+	getAllPhotographersId = async () => {
+		const data = await this.getDatas();
+		const photographersId = new Array();
+		for(let photographer of data.photographers){
+			photographersId.push(photographer.id);
+		}
+		return photographersId;
+	};
 	getPhotographersByTag = async (tag) => {
 		const data = await this.getDatas();
 		const photographers = data.photographers;
@@ -32,8 +40,18 @@ export default class DataStore {
 	getMediasByTag = async (tag) => {
 		const data = await this.getDatas();
 		const medias = data.media;
-		return medias.filter((media) =>
-			media.tags.includes(tag)
-		);
+		return medias.filter((media) => media.tags.includes(tag));
+	};
+	getAllTags = async (tag) => {
+		const data = await this.getDatas();
+		const tags = new Set();
+		const iterDatas = [...data.photographers, ...data.media];
+		for (let array of iterDatas) {
+			for (let tag of array.tags) {
+				tags.add(tag);
+			}
+		}
+
+		return tags;
 	};
 }

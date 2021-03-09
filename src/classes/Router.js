@@ -1,3 +1,4 @@
+import Home from "/src/classes/components/Home.js";
 export default class Router {
 	constructor(app, selector, routes) {
 		this.app = app;
@@ -29,4 +30,5 @@ export default class Router {
 			this.render(this.routes[window.location.pathname]);
 		};
 	};
+	
 }
