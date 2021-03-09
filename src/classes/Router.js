@@ -1,11 +1,10 @@
-import Home from "/src/classes/components/Home.js";
 export default class Router {
 	constructor(app, selector, routes) {
 		this.app = app;
 		this.selector = selector;
 		this.routes = routes;
 		this.render(routes[window.location.pathname]);
-        this.watch()
+		this.watch();
 	}
 	render = (component) => {
 		if (component !== undefined) {
@@ -22,7 +21,9 @@ export default class Router {
 		document.addEventListener("click", (e) => {
 			if (e.target.classList.contains(this.selector)) {
 				e.preventDefault();
-				let route = e.target.getAttribute("href");
+				let target = this.hasTarget(e.target)
+				const href = target.getAttribute("href");
+				const route = href.substring(2);
 				this.onNavClick(route);
 			}
 		});
@@ -30,5 +31,12 @@ export default class Router {
 			this.render(this.routes[window.location.pathname]);
 		};
 	};
-	
+	hasTarget = (elem) => {
+		if (elem.hasAttribute("href") === false) {
+			let newElem = elem.parentNode;
+			return this.hasTarget(newElem);
+		} else {
+			return elem;
+		}
+	}
 }

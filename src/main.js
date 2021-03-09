@@ -9,15 +9,18 @@ import Error from "/src/classes/components/Error.js";
 	const store = new DataStore();
 	const selector = "router-link";
 	const app = document.getElementById("app");
-	
+
 	//
 	// routes creation
 	//
 
 	//statics routes
 	const staticsRoutes = {
-		"/": Home.init(await store.getAllPhotographers()),
-		"/index.html": Home.init(await store.getAllPhotographers()),
+		"/": Home.init(await store.getAllTags(), await store.getAllPhotographers()),
+		"/index.html": Home.init(
+			await store.getAllTags(),
+			await store.getAllPhotographers()
+		),
 		"/error": Error.init(),
 	};
 	//dynamic routes
@@ -30,6 +33,7 @@ import Error from "/src/classes/components/Error.js";
 		}
 		for (let tag of tags) {
 			response[`/category/${tag}`] = Home.init(
+				await store.getAllTags(),
 				await store.getPhotographersByTag(tag)
 			);
 		}
@@ -42,7 +46,7 @@ import Error from "/src/classes/components/Error.js";
 	);
 	//merging
 	const routes = { ...staticsRoutes, ...dynRoutes };
-	
+
 	//
 	// router start
 	//
