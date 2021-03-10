@@ -1,5 +1,6 @@
-import Router from "/src/classes/Router.js";
 import DataStore from "/src/classes/DataStore.js";
+import Router from "/src/classes/Router.js";
+import EventsManager from "/src/classes/EventsManager.js";
 
 import Home from "/src/classes/pages/Home.js";
 import Photographer from "/src/classes/pages/Photographer.js";
@@ -9,7 +10,7 @@ import Error from "/src/classes/pages/Error.js";
 
 (async () => {
 	const store = new DataStore();
-	const selector = "router-link";
+	
 	const app = document.getElementById("app");
 
 	//
@@ -54,6 +55,12 @@ import Error from "/src/classes/pages/Error.js";
 	// router start
 	//
 
-	const router = new Router(app, selector, routes);
+	const router = new Router(app, routes);
 
+
+	//
+	// listen for events
+	//
+	
+	const events = new EventsManager(router);
 })();
