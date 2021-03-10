@@ -1,3 +1,4 @@
+import mediasFactory from "../mediasFactory.js";
 export default class DataStore {
 	getDatas = async () => {
 		const url = "/src/json/FishEyeDataFR.json";
@@ -26,21 +27,24 @@ export default class DataStore {
 	getPhotographerById = async (id) => {
 		const data = await this.getDatas();
 		const photographers = data.photographers;
-		return photographers.filter((photographer) => photographer.id === id);
+		const array = photographers.filter((photographer) => photographer.id === id);
+		const object = array[0];
+		return object;
 	};
 	getAllMedias = async () => {
 		const data = await this.getDatas();
-		return data.media;
+		const medias = mediasFactory(data.media)
+		return medias;
 	};
 	getMediasByPhotographerId = async (id) => {
 		const data = await this.getDatas();
-		const medias = data.media;
-		return medias.filter((media) => media.photographerId === id);
+		const medias = mediasFactory(data.media.filter((media) => media.photographerId === id));
+		return medias;
 	};
 	getMediasByTag = async (tag) => {
 		const data = await this.getDatas();
-		const medias = data.media;
-		return medias.filter((media) => media.tags.includes(tag));
+		const medias = mediasFactory(data.media.filter((media) => media.tags.includes(tag)));
+		return medias
 	};
 	getAllTags = async (tag) => {
 		const data = await this.getDatas();

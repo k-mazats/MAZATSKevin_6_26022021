@@ -1,9 +1,11 @@
 import Router from "/src/classes/Router.js";
 import DataStore from "/src/classes/DataStore.js";
 
-import Home from "/src/classes/components/Home.js";
-import Photographer from "/src/classes/components/Photographer.js";
-import Error from "/src/classes/components/Error.js";
+import Home from "/src/classes/pages/Home.js";
+import Photographer from "/src/classes/pages/Photographer.js";
+import Error from "/src/classes/pages/Error.js";
+
+
 
 (async () => {
 	const store = new DataStore();
@@ -28,7 +30,8 @@ import Error from "/src/classes/components/Error.js";
 		const response = {};
 		for (let id of ids) {
 			response[`/photographer/${id}`] = Photographer.init(
-				await store.getPhotographerById(id)
+				await store.getPhotographerById(id),
+				await store.getMediasByPhotographerId(id)
 			);
 		}
 		for (let tag of tags) {
@@ -52,4 +55,5 @@ import Error from "/src/classes/components/Error.js";
 	//
 
 	const router = new Router(app, selector, routes);
+
 })();

@@ -1,4 +1,4 @@
-import PhotographersTags from "/src/classes/components/PhotographersTags.js";
+import Category from "/src/classes/components/Category.js";
 class PhotographersGrid {
 	static init = (data) => {
 		
@@ -27,7 +27,7 @@ class PhotographersGrid {
 					<div class="user__categories">
 						<ul class="user__categories-list">
 							<li class="user__categories-item">
-								${PhotographersTags.init("grid",item.tags)}
+								${Category.init("grid",item.tags)}
 							</li>
 						</ul>
 					</div>
