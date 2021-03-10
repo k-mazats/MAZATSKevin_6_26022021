@@ -1,7 +1,9 @@
 import Category from "/src/classes/components/Category.js";
 import MediasGrid from "/src/classes/components/MediasGrid.js";
+import Contact from "/src/classes/components/Contact.js";
+import Lightbox from "/src/classes/components/Lightbox.js";
 class Photographer {
-	static init = (photographer,medias) => {
+	static init = (photographer, medias) => {
 		const template = `<header role="banner" class="header">
 				<a href="../index.html" class="header__link router-link">
 					<img
@@ -46,7 +48,7 @@ class Photographer {
 					</span>
 					<button
 						id="sortMediaButton"
-						class="photographer-medias__sort-button"
+						class="photographer-medias__sort-button dropdown-button"
 						aria-haspopup="listbox"
 						aria-labelledby="sortMediasLabel"
 					>
@@ -54,86 +56,25 @@ class Photographer {
 					</button>
 					<ul
 						id="sortMediaList"
-						class="photographer-medias__sort-list"
+						class="photographer-medias__sort-list dropdown-content"
 						tabindex="-1"
 						role="listbox"
 						aria-labelledby="exp_elem"
 					>
-						<li class="photographer-medias__sort-option" role="option">
+						<li class="photographer-medias__sort-option dropdown-content" role="option">
 							Popularité
 						</li>
-						<li class="photographer-medias__sort-option" role="option">Date</li>
-						<li class="photographer-medias__sort-option" role="option">
+						<li class="photographer-medias__sort-option dropdown-content" role="option">Date</li>
+						<li class="photographer-medias__sort-option dropdown-content" role="option">
 							Titre
 						</li>
 					</ul>
 				</div>
-				<div class="photographer-medias__grid">
-					${MediasGrid.init(medias, photographer)}
-					
-				</div>
+				${MediasGrid.init(medias, photographer)}	
 			</section>
-			<div class="contact-modal" id="contact" hidden>
-				<div class="contact-modal__wrap">
-					<i class="fas fa-times contact-modal__close modal-close" data-target="contact"></i>
-					<div class="contact-form">
-						<h1 class="contact-form__title">Contactez- moi<br />${photographer.name}</h1>
-						<form action="" class="contact-form__form">
-							<label for="firstName" class="contact-form__label">
-								Prénom
-								<input
-									type="text"
-									name=""
-									id="firstName"
-									class="contact-form__input"
-								/>
-							</label>
-							<label for="lastName" class="contact-form__label">
-								Nom
-								<input
-									type="text"
-									name=""
-									id="lastName"
-									class="contact-form__input"
-								/>
-							</label>
-							<label for="email" class="contact-form__label">
-								Email
-								<input
-									type="email"
-									name=""
-									id="email"
-									class="contact-form__input"
-								/>
-							</label>
-							<label for="message" class="contact-form__label">
-								Votre message
-								<textarea
-									name=""
-									id="message"
-									class="contact-form__textarea"
-								></textarea>
-							</label>
-							<button type="submit" class="contact-form__submit">Envoyer</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="lightbox-modal"  id="lightbox" hidden>
-				<div class="lightbox-modal__wrap" id="lightbox">
-					<button class="lightbox-modal__close modal-close" data-target="lightbox">X</button>
-					<a href="" class="lightbox-modal__previous"><i class="fas fa-chevron-left"></i></a>
-					<img
-						src="img/Sample Photos/Mimi/Animals_Rainbow.jpg"
-						alt=""
-						class="lightbox-modal__img"
-					/>
-					<a href="" class="lightbox-modal__next"><i class="fas fa-chevron-right"></i></a>
-					<div class="lightbox-modal__title-wrap">
-						<p class="lightbox-modal__title">Arc en ciel</p>
-					</div>
-				</div>
-			</div>`;
+			${Contact.init(photographer)}
+			${Lightbox.init(photographer)}
+			`;
 		return template;
 	};
 }
