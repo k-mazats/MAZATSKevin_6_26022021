@@ -1,13 +1,7 @@
 .nav {
   width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 3rem 0;
-}
-
-.nav__list {
-  display: flex;
 }
 
 @media (max-width: 820px) {
@@ -15,4 +9,14 @@
     order: 3;
     width: 100%;
   }
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav__item {
+  margin-bottom: 0.375rem;
 }

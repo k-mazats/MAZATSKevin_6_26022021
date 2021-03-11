@@ -38,6 +38,13 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   background: #e5e5e5;
+  padding: 0 3rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0 1.25rem;
+  }
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -154,6 +161,13 @@ html {
   color: #911c1c;
 }
 
+.media-card__price,
+.media-card__like {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
 .contact-form__title {
   font-size: 4rem;
   line-height: 5.208rem;
@@ -184,12 +198,77 @@ html {
   line-height: 1.938rem;
 }
 
+@media (max-width: 600px) {
+  .page-title,
+  .user__name {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: normal;
+  }
+  .user__name {
+    font-size: 2.25rem;
+    line-height: 2.938rem;
+  }
+  .photographer-infos__name {
+    font-size: 2.25rem;
+    line-height: 2.938rem;
+  }
+  .photographer-infos__location {
+    font-size: 0.813rem;
+    line-height: 1.063rem;
+  }
+  .photographer-infos__catchphrase {
+    font-size: 0.813rem;
+    line-height: 1.063rem;
+  }
+  .photographer-infos__categories-link {
+    font-size: 0.813rem;
+    line-height: 1.063rem;
+    font-weight: 500;
+    color: #911c1c;
+  }
+  .photographer-infos__contact {
+    font-size: 1.125rem;
+    line-height: 1.438rem;
+    font-weight: 700;
+  }
+  .media-card__title {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+  .media-card__price {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .media-card__like {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+  .contact-form__title {
+    font-size: 2.25rem;
+    line-height: 2.938rem;
+    font-weight: 400;
+  }
+  .contact-form__label {
+    font-size: 1.5rem;
+    line-height: 1.938rem;
+  }
+  .contact-form__submit {
+    font-size: 1.125rem;
+    line-height: 1.438rem;
+  }
+  .lightbox-modal__title {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    color: #911c1c;
+  }
+}
+
 .user__categories-link,
 .nav__link,
 .photographer-infos__categories-link {
   display: block;
   border: 0.5px solid #c4c4c4;
-  box-sizing: border-box;
   border-radius: 12px;
   padding: 0 0.5ch;
 }
@@ -214,7 +293,7 @@ html {
   justify-content: space-between;
   align-items: center;
   width: 25%;
-  padding: 3rem 6.25rem;
+  padding: 3rem 0;
 }
 
 .header__link {
@@ -235,13 +314,7 @@ html {
 .nav {
   width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 3rem 0;
-}
-
-.nav__list {
-  display: flex;
 }
 
 @media (max-width: 820px) {
@@ -249,6 +322,16 @@ html {
     order: 3;
     width: 100%;
   }
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav__item {
+  margin-bottom: 0.375rem;
 }
 
 .footer {
@@ -422,7 +505,7 @@ html {
 
 .photographer-medias {
   justify-content: flex-start;
-  padding: 3rem 3.5%;
+  padding: 3rem 0;
   width: 100%;
 }
 
@@ -430,6 +513,12 @@ html {
   margin-bottom: 3rem;
   padding: 0 3.25rem;
   position: relative;
+}
+
+@media (max-width: 820px) {
+  .photographer-medias__sort-wrap {
+    display: none;
+  }
 }
 
 .photographer-medias__sort-list {
@@ -484,16 +573,11 @@ html {
 .photographer-medias__grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 31% 31% 31%;
+  grid-auto-rows: 400px;
   grid-column-gap: 3.5%;
   grid-row-gap: 2rem;
   place-items: center;
-}
-
-@media (max-width: 820px) {
-  .photographer-medias__grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 600px) {
@@ -521,15 +605,22 @@ html {
 
 .media-card__img {
   width: 100%;
-  max-height: 300px;
+  height: 350px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+@media (max-width: 820px) {
+  .media-card__img {
+    width: 100%;
+    height: 200px;
+  }
 }
 
 @media (max-width: 600px) {
   .media-card__img {
     width: 100%;
-    max-height: 200px;
+    height: 200px;
   }
 }
 
@@ -541,13 +632,17 @@ html {
 }
 
 .media-card__title {
-  width: calc(100% / 3 * 2);
+  width: -webkit-fill-available;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .media-card__price, .media-card__like {
-  width: calc(100% / 3 / 2);
+  width: max-content;
   text-align: right;
+  white-space: nowrap;
 }
 
 .contact-modal {
@@ -706,7 +801,7 @@ html {
   height: 4.563rem;
   display: flex;
   align-items: center;
-  background: #DB8876;
+  background: #db8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
