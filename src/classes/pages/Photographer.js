@@ -4,7 +4,7 @@ import Contact from "/src/classes/components/Contact.js";
 import Lightbox from "/src/classes/components/Lightbox.js";
 import PhotographerWidget from "/src/classes/components/PhotographerWidget.js";
 class Photographer {
-	static init = (photographer, medias) => {
+	static init = (photographer, medias, sortBy) => {
 		const template = `<header role="banner" class="header">
 				<a href="../index.html" class="header__link router-link">
 					<img
@@ -53,7 +53,7 @@ class Photographer {
 						aria-haspopup="listbox"
 						aria-labelledby="sortMediasLabel"
 					>
-						Popularité
+						${sortBy}
 					</button>
 					<ul
 						id="sortMediaList"
@@ -62,20 +62,21 @@ class Photographer {
 						role="listbox"
 						aria-labelledby="exp_elem"
 					>
-						<li class="photographer-medias__sort-option dropdown-content" role="option">
-							Popularité
+						<li class="photographer-medias__sort-option" role="option">
+							<a href="trending" class="photographer-medias__sort-option-link dropdown-content">Popularité<a>
 						</li>
-						<li class="photographer-medias__sort-option dropdown-content" role="option">Date</li>
-						<li class="photographer-medias__sort-option dropdown-content" role="option">
-							Titre
+						<li class="photographer-medias__sort-option" role="option">
+							<a href="date" class="photographer-medias__sort-option-link dropdown-content">Date<a>
+						</li><li class="photographer-medias__sort-option" role="option">
+							<a href="title		" class="photographer-medias__sort-option-link dropdown-content">Titre<a>
 						</li>
 					</ul>
 				</div>
-				${MediasGrid.init(medias, photographer)}	
+				${MediasGrid.init(medias, photographer, sortBy)}	
 			</section>
 			${Contact.init(photographer)}
 			${Lightbox.init(photographer)}
-			${PhotographerWidget.init(medias,photographer)}
+			${PhotographerWidget.init(medias, photographer)}
 			`;
 		return template;
 	};

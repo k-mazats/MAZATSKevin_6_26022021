@@ -178,6 +178,12 @@ html {
   color: #911c1c;
 }
 
+.photographer-widget {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.938rem;
+}
+
 .user__categories-link,
 .nav__link,
 .photographer-infos__categories-link {
@@ -703,6 +709,12 @@ html {
   background: #DB8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+@media (max-width: 820px) {
+  .photographer-widget {
+    display: none;
+  }
 }
 
 .photographer-widget__likes-wrap, .photographer-widget__price-wrap {

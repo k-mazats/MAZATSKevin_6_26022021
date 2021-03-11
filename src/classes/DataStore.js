@@ -4,6 +4,7 @@ export default class DataStore {
 		this.data = {
 			photographers: data.photographers,
 			media: mediasFactory(data.media),
+			sortBy: "Popularité"
 		};
 	}
 	getAllPhotographers = () => {

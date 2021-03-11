@@ -4,7 +4,7 @@ class EventsManager {
 		document.addEventListener("click", (e) => {
 			this.watchRouterLinks(e,router);
 			this.watchDropdownButton(e);
-			this.watchDropdownContent(e);
+			this.watchDropdownContent(e,store,router);
 			this.watchModalTriggers(e);
 			this.watchModalClosers(e);
 			this.watchLikes(e,store,router);
@@ -36,19 +36,36 @@ class EventsManager {
 	};
 	static watchDropdownButton = (e) => {
 		if (e.target.classList.contains("dropdown-button")) {
-			let dropdownContent = document.getElementById("sortMediaList");
-			dropdownContent.style.display = "block";
-			dropdownContent.tabIndex = "0";
-			dropdownContent.focus();
+			const dropdownLi = document.getElementsByClassName("dropdown-content");
+			const dropdownContent = document.getElementById("sortMediaList");
+			dropdownContent.style.display = "block			";
+			for(let content of dropdownLi){
+				content.tabIndex = "0";
+			}
+			
+			dropdownLi[1].focus();
 		}
 	};
-	static watchDropdownContent = (e) => {
+	static watchDropdownContent = (e,store,router) => {
 		if (e.target.classList.contains("dropdown-content")) {
-			let dropdownContent = document.getElementById("sortMediaList");
+			e.preventDefault();
+			const dropdownContent = document.getElementById("sortMediaList");
 			dropdownContent.style.display = "none";
 			dropdownContent.tabIndex = "-1";
+			store.data.sortBy = e.target.innerHTML;
+			const pathname = window.location.pathname.split("/");
+			const id = parseInt(pathname[2]);
+			router.routes[window.location.pathname] = Photographer.init(
+				store.getPhotographerById(id),
+				store.getMediasByPhotographerId(id),
+				store.data.sortBy
+			);
+			router.render(router.routes[window.location.pathname]);
 		}
 	};
+	static sortMedias = (e) => {
+
+	}
 	static watchModalTriggers = (e) => {
 		if (
 			e.target.classList.contains("modal-trigger") &&
@@ -68,14 +85,17 @@ class EventsManager {
 	};
 	static watchLikes = (e,store,router) => {
 		if (e.target.classList.contains("like-button")) {
+			e.stopPropagation();
 			let target = this.hasTarget(e.target, "data-target");
+		
 			let media = target.getAttribute("data-target");
 			store.addLike(media);
 			const pathname = window.location.pathname.split("/");
 			const id = parseInt(pathname[2]);
 			router.routes[window.location.pathname] = Photographer.init(
 				store.getPhotographerById(id),
-				store.getMediasByPhotographerId(id)
+				store.getMediasByPhotographerId(id),
+				store.data.sortBy
 			);
 			router.render(router.routes[window.location.pathname]);
 		}

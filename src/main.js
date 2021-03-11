@@ -34,7 +34,8 @@ import Error from "/src/classes/pages/Error.js";
 		for (let id of ids) {
 			response[`/photographer/${id}`] = Photographer.init(
 				store.getPhotographerById(id),
-				store.getMediasByPhotographerId(id)
+				store.getMediasByPhotographerId(id),
+				store.data.sortBy
 			);
 		}
 		for (let tag of tags) {
