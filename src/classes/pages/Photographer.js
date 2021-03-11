@@ -63,12 +63,12 @@ class Photographer {
 						aria-labelledby="exp_elem"
 					>
 						<li class="photographer-medias__sort-option" role="option">
-							<a href="trending" class="photographer-medias__sort-option-link dropdown-content">Popularité<a>
+							<a href="trending" class="photographer-medias__sort-option-link dropdown-content">Popularité</a>
 						</li>
 						<li class="photographer-medias__sort-option" role="option">
-							<a href="date" class="photographer-medias__sort-option-link dropdown-content">Date<a>
+							<a href="date" class="photographer-medias__sort-option-link dropdown-content">Date</a>
 						</li><li class="photographer-medias__sort-option" role="option">
-							<a href="title		" class="photographer-medias__sort-option-link dropdown-content">Titre<a>
+							<a href="title" class="photographer-medias__sort-option-link dropdown-content">Titre</a>
 						</li>
 					</ul>
 				</div>
