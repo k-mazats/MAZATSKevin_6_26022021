@@ -19,7 +19,7 @@
 	&__contact-wrap {
 		text-align: left;
 		@media (max-width: 820px) {
-			position: absolute;
+			position: fixed;
 			bottom: 2rem;
 			width: 100%;
 			display: flex;
@@ -291,4 +291,26 @@
 		color: #911c1c;
 		font-size: 3rem;
 	}
+}
+.photographer-widget{
+	position: fixed;
+	bottom:0;
+	right: 2.25rem;
+	width: 23.5rem;
+	height: 4.563rem;
+	display: flex;
+	align-items: center;
+	background: #DB8876;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	&__likes-wrap,
+	&__price-wrap{
+		width: 50%;
+		display: flex;
+		justify-content: center;
+	}
+	&__likes-button{
+		margin-left: 0.39rem;
+	}
+	
 }

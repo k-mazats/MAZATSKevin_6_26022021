@@ -1,61 +1,65 @@
 import mediasFactory from "../mediasFactory.js";
 export default class DataStore {
-	getDatas = async () => {
-		const url = "/src/json/FishEyeDataFR.json";
-		const response = await fetch(url);
-		return response.json();
+	constructor(data) {
+		this.data = {
+			photographers: data.photographers,
+			media: mediasFactory(data.media),
+		};
+	}
+	getAllPhotographers = () => {
+		return this.data.photographers;
 	};
-	getAllPhotographers = async () => {
-		const data = await this.getDatas();
-		return data.photographers;
-	};
-	getAllPhotographersId = async () => {
-		const data = await this.getDatas();
+	getAllPhotographersId = () => {
 		const photographersId = new Array();
-		for(let photographer of data.photographers){
+		for (let photographer of this.data.photographers) {
 			photographersId.push(photographer.id);
 		}
 		return photographersId;
 	};
-	getPhotographersByTag = async (tag) => {
-		const data = await this.getDatas();
-		const photographers = data.photographers;
+	getPhotographersByTag = (tag) => {
+		const photographers = this.data.photographers;
 		return photographers.filter((photographer) =>
 			photographer.tags.includes(tag)
 		);
 	};
-	getPhotographerById = async (id) => {
-		const data = await this.getDatas();
-		const photographers = data.photographers;
-		const array = photographers.filter((photographer) => photographer.id === id);
+	getPhotographerById = (id) => {
+		const photographers = this.data.photographers;
+		const array = photographers.filter(
+			(photographer) => photographer.id === id
+		);
 		const object = array[0];
 		return object;
 	};
-	getAllMedias = async () => {
-		const data = await this.getDatas();
-		const medias = mediasFactory(data.media)
-		return medias;
+	getAllMedias = () => {
+		return this.data.media;
 	};
-	getMediasByPhotographerId = async (id) => {
-		const data = await this.getDatas();
-		const medias = mediasFactory(data.media.filter((media) => media.photographerId === id));
-		return medias;
+	getMediaById = (id) => {
+		const medias = this.getAllMedias();
+		const array = medias.filter((media) => media.data.id === parseInt(id));
+		const object = array[0];
+		return object;
 	};
-	getMediasByTag = async (tag) => {
-		const data = await this.getDatas();
-		const medias = mediasFactory(data.media.filter((media) => media.tags.includes(tag)));
-		return medias
+	getMediasByPhotographerId = (id) => {
+		const medias = this.getAllMedias();
+
+		return medias.filter((media) => media.data.photographerId === id);
 	};
-	getAllTags = async (tag) => {
-		const data = await this.getDatas();
+	getMediasByTag = (tag) => {
+		const medias = this.getAllMedias();
+		return medias.filter((media) => media.data.tags.includes(tag));
+	};
+	getAllTags = () => {
 		const tags = new Set();
-		const iterDatas = [...data.photographers, ...data.media];
+		const iterDatas = [...this.data.photographers];
 		for (let array of iterDatas) {
 			for (let tag of array.tags) {
 				tags.add(tag);
 			}
 		}
-
 		return tags;
+	};
+	addLike = (id) => {
+		const media = this.getMediaById(id);
+		media.data.likes += 1;
 	};
 }

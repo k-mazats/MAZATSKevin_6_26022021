@@ -2,6 +2,7 @@ import Category from "/src/classes/components/Category.js";
 import MediasGrid from "/src/classes/components/MediasGrid.js";
 import Contact from "/src/classes/components/Contact.js";
 import Lightbox from "/src/classes/components/Lightbox.js";
+import PhotographerWidget from "/src/classes/components/PhotographerWidget.js";
 class Photographer {
 	static init = (photographer, medias) => {
 		const template = `<header role="banner" class="header">
@@ -74,6 +75,7 @@ class Photographer {
 			</section>
 			${Contact.init(photographer)}
 			${Lightbox.init(photographer)}
+			${PhotographerWidget.init(medias,photographer)}
 			`;
 		return template;
 	};

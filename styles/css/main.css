@@ -379,7 +379,7 @@ html {
 
 @media (max-width: 820px) {
   .photographer-infos__contact-wrap {
-    position: absolute;
+    position: fixed;
     bottom: 2rem;
     width: 100%;
     display: flex;
@@ -690,4 +690,27 @@ html {
   width: 5.875rem;
   color: #911c1c;
   font-size: 3rem;
+}
+
+.photographer-widget {
+  position: fixed;
+  bottom: 0;
+  right: 2.25rem;
+  width: 23.5rem;
+  height: 4.563rem;
+  display: flex;
+  align-items: center;
+  background: #DB8876;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.photographer-widget__likes-wrap, .photographer-widget__price-wrap {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.photographer-widget__likes-button {
+  margin-left: 0.39rem;
 }

@@ -1,3 +1,5 @@
+import getDatas from "/src/getDatas.js";
+
 import DataStore from "/src/classes/DataStore.js";
 import Router from "/src/classes/Router.js";
 import EventsManager from "/src/classes/EventsManager.js";
@@ -9,7 +11,7 @@ import Error from "/src/classes/pages/Error.js";
 
 
 (async () => {
-	const store = new DataStore();
+	const store = new DataStore(await getDatas());
 	
 	const app = document.getElementById("app");
 
@@ -19,10 +21,10 @@ import Error from "/src/classes/pages/Error.js";
 
 	//statics routes
 	const staticsRoutes = {
-		"/": Home.init(await store.getAllTags(), await store.getAllPhotographers()),
+		"/": Home.init(store.getAllTags(), store.getAllPhotographers()),
 		"/index.html": Home.init(
-			await store.getAllTags(),
-			await store.getAllPhotographers()
+			store.getAllTags(),
+			store.getAllPhotographers()
 		),
 		"/error": Error.init(),
 	};
@@ -31,21 +33,21 @@ import Error from "/src/classes/pages/Error.js";
 		const response = {};
 		for (let id of ids) {
 			response[`/photographer/${id}`] = Photographer.init(
-				await store.getPhotographerById(id),
-				await store.getMediasByPhotographerId(id)
+				store.getPhotographerById(id),
+				store.getMediasByPhotographerId(id)
 			);
 		}
 		for (let tag of tags) {
 			response[`/category/${tag}`] = Home.init(
-				await store.getAllTags(),
-				await store.getPhotographersByTag(tag)
+				store.getAllTags(),
+				store.getPhotographersByTag(tag)
 			);
 		}
 		return response;
 	};
 	const dynRoutes = await addDynRoutes(
-		await store.getAllPhotographersId(),
-		await store.getAllTags(),
+		store.getAllPhotographersId(),
+		store.getAllTags(),
 		store
 	);
 	//merging
@@ -62,5 +64,5 @@ import Error from "/src/classes/pages/Error.js";
 	// listen for events
 	//
 	
-	const events = new EventsManager(router);
+	const events = EventsManager.watch(router,store);
 })();
