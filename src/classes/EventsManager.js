@@ -11,7 +11,7 @@ class EventsManager {
 			this.watchLikes(e, store, router);
 			this.watchCarousel(e);
 		});
-		document.addEventListener("keyup", (e) => {
+		document.addEventListener("keydown", (e) => {
 			if (e.key === "Enter") {
 				this.watchLikes(e, store, router);
 			}
@@ -100,6 +100,7 @@ class EventsManager {
 	};
 	static watchModalClosers = (e) => {
 		if (e.target.classList.contains("modal-close")) {
+			console.log(1);
 			e.preventDefault();
 			let target = this.hasTarget(e.target, "data-target");
 			let modal = document.getElementById(target.getAttribute("data-target"));
@@ -116,18 +117,18 @@ class EventsManager {
 		}
 	};
 	static closeModals = (e) => {
-		const backgroundElement = document.querySelector(".background-element");
-		if (backgroundElement.getAttribute("tabindex") === "-1") {
-			const modals = document.getElementsByClassName("modal");
-			for (let modal of modals) {
-				if (modal.style.display !== "none") {
-					if (modal.id === "lightbox") {
-						Carousel.closeCarousel();
-					}
-					modal.style.display = "none";
-					for (let element of backgroundElements) {
-						element.setAttribute("tabindex", "0");
-					}
+		const backgroundElements = document.getElementsByClassName(
+			"background-element"
+		);
+		const modals = document.getElementsByClassName("modal");
+		for (let modal of modals) {
+			if (modal.style.display !== "none") {
+				if (modal.id === "lightbox") {
+					Carousel.closeCarousel();
+				}
+				modal.style.display = "none";
+				for (let element of backgroundElements) {
+					element.setAttribute("tabindex", "0");
 				}
 			}
 		}
