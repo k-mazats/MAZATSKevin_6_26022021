@@ -1,6 +1,6 @@
 class Contact {
 	static init = (data) => {
-		const template = `<div class="contact-modal" id="contact" hidden>
+		const template = `<div class="contact-modal modal" id="contact" hidden>
 				<div class="contact-modal__wrap">
 					<a href="" class="modal-close" data-target="contact">
 						<i class="fas fa-times contact-modal__close modal-close"></i>

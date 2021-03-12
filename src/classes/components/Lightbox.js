@@ -1,6 +1,6 @@
 class Lightbox {
 	static init = (photographer, medias) => {
-		const template = `<div class="lightbox-modal"  id="lightbox" hidden>
+		const template = `<div class="lightbox-modal modal"  id="lightbox" hidden>
 				<div class="lightbox-modal__wrap">
 				<button class="lightbox-modal__close modal-close" data-target="lightbox">X</button>
 				<a href="backward" class="lightbox-modal__previous carousel-controls"><i class="fas fa-chevron-left carousel-controls"></i></a>

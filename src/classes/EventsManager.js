@@ -11,13 +11,15 @@ class EventsManager {
 			this.watchLikes(e, store, router);
 			this.watchCarousel(e);
 		});
-		document.addEventListener("keypress", (e) => {
-				if (e.key === "Enter") {
-					console.log(e.target);
-					let target = e.target;
-					this.watchLikes(e, store, router);
-				}
-			});
+		document.addEventListener("keyup", (e) => {
+			if (e.key === "Enter") {
+				this.watchLikes(e, store, router);
+			}
+			if (e.key === "Escape") {
+				this.closeDropdown(e);
+				this.closeModals(e);
+			}
+		});
 		window.onpopstate = () => {
 			router.render(router.routes[window.location.pathname]);
 		};
@@ -57,9 +59,7 @@ class EventsManager {
 	static watchDropdownContent = (e, store, router) => {
 		if (e.target.classList.contains("dropdown-content")) {
 			e.preventDefault();
-			const dropdownContent = document.getElementById("sortMediaList");
-			dropdownContent.style.display = "none";
-			dropdownContent.tabIndex = "-1";
+			this.closeDropdown(e);
 			store.data.sortBy = e.target.innerHTML;
 			const pathname = window.location.pathname.split("/");
 			const id = parseInt(pathname[2]);
@@ -71,7 +71,13 @@ class EventsManager {
 			router.render(router.routes[window.location.pathname]);
 		}
 	};
-	static sortMedias = (e) => {};
+	static closeDropdown = (e) => {
+		if (e.target.classList.contains("dropdown-content")) {
+			const dropdownContent = document.getElementById("sortMediaList");
+			dropdownContent.style.display = "none";
+			dropdownContent.tabIndex = "-1";
+		}
+	};
 	static watchModalTriggers = (e) => {
 		if (
 			e.target.classList.contains("modal-trigger") &&
@@ -84,9 +90,11 @@ class EventsManager {
 				Carousel.startCarousel(target);
 			}
 			modal.style.display = "flex";
-			let backgroundElements = document.getElementsByClassName("background-element");
-			for(let element of backgroundElements){
-				element.setAttribute("tabindex","-1");
+			let backgroundElements = document.getElementsByClassName(
+				"background-element"
+			);
+			for (let element of backgroundElements) {
+				element.setAttribute("tabindex", "-1");
 			}
 		}
 	};
@@ -104,6 +112,23 @@ class EventsManager {
 			);
 			for (let element of backgroundElements) {
 				element.setAttribute("tabindex", "0");
+			}
+		}
+	};
+	static closeModals = (e) => {
+		const backgroundElement = document.querySelector(".background-element");
+		if (backgroundElement.getAttribute("tabindex") === "-1") {
+			const modals = document.getElementsByClassName("modal");
+			for (let modal of modals) {
+				if (modal.style.display !== "none") {
+					if (modal.id === "lightbox") {
+						Carousel.closeCarousel();
+					}
+					modal.style.display = "none";
+					for (let element of backgroundElements) {
+						element.setAttribute("tabindex", "0");
+					}
+				}
 			}
 		}
 	};
@@ -129,6 +154,6 @@ class EventsManager {
 			let target = this.hasTarget(e.target, "href");
 			Carousel.setActive(target.getAttribute("href"));
 		}
-	}
+	};
 }
 export default EventsManager;
