@@ -9,9 +9,10 @@ class Image extends Media {
 		super("image", data);
 	}
 	getName = () => {
-		const fileName = this.data.image;
-		const index = fileName.indexOf(".");
-		const name = fileName.substring(0,index).replace(/_|-/g, " ");
+		const fileName = this.data.image.replace(/_|-/g, " ");
+		const indexExtension = fileName.indexOf(".");
+		const indexName = fileName.indexOf(" ")
+		const name = fileName.substring(indexName,indexExtension);
 		return name;
 	}
 	getFolder = (data) => {
@@ -26,9 +27,10 @@ class Video extends Media {
 		super("video", data);
 	}
 	getName = () => {
-		const fileName = this.data.video;
-		const index = fileName.indexOf(".");
-		const name = fileName.substring(0, index).replace(/_|-/g, " ");
+		const fileName = this.data.video.replace(/_|-/g, " ");
+		const indexExtension = fileName.indexOf(".");
+		const indexName = fileName.indexOf(" ");
+		const name = fileName.substring(indexName, indexExtension);
 		return name;
 	};
 	getFolder = (data) => {

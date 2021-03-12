@@ -2,9 +2,14 @@
 	width: 50%;
 	display: flex;
     padding: 3rem 0;
+    justify-content: center;
     @media (max-width: 820px) {
         order: 3;
         width: 100%;
+    }
+    @media (max-width: 600px) {
+        
+        padding: 0;
     }
 	&__list {
 		display: flex;

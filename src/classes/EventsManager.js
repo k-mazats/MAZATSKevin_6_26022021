@@ -1,13 +1,15 @@
+import Carousel from "/src/classes/Carousel.js";
 import Photographer from "/src/classes/pages/Photographer.js";
 class EventsManager {
-	static watch = (router,store) => {
+	static watch = (router, store) => {
 		document.addEventListener("click", (e) => {
-			this.watchRouterLinks(e,router);
+			this.watchRouterLinks(e, router);
 			this.watchDropdownButton(e);
-			this.watchDropdownContent(e,store,router);
+			this.watchDropdownContent(e, store, router);
 			this.watchModalTriggers(e);
 			this.watchModalClosers(e);
-			this.watchLikes(e,store,router);
+			this.watchLikes(e, store, router);
+			this.watchCarousel(e);
 		});
 		window.onpopstate = () => {
 			router.render(router.routes[window.location.pathname]);
@@ -39,14 +41,13 @@ class EventsManager {
 			const dropdownLi = document.getElementsByClassName("dropdown-content");
 			const dropdownContent = document.getElementById("sortMediaList");
 			dropdownContent.style.display = "block			";
-			for(let content of dropdownLi){
+			for (let content of dropdownLi) {
 				content.tabIndex = "0";
 			}
-			
 			dropdownLi[1].focus();
 		}
 	};
-	static watchDropdownContent = (e,store,router) => {
+	static watchDropdownContent = (e, store, router) => {
 		if (e.target.classList.contains("dropdown-content")) {
 			e.preventDefault();
 			const dropdownContent = document.getElementById("sortMediaList");
@@ -63,31 +64,37 @@ class EventsManager {
 			router.render(router.routes[window.location.pathname]);
 		}
 	};
-	static sortMedias = (e) => {
-
-	}
+	static sortMedias = (e) => {};
 	static watchModalTriggers = (e) => {
 		if (
 			e.target.classList.contains("modal-trigger") &&
 			!e.target.classList.contains("fas-heart")
 		) {
 			let target = this.hasTarget(e.target, "data-target");
-			let modal = target.getAttribute("data-target");
-			document.getElementById(modal).style.display = "flex";
+			let modal = document.getElementById(target.getAttribute("data-target"));
+			if (modal.id === "lightbox") {
+				Carousel.startCarousel(target);
+			}
+			modal.style.display = "flex";
 		}
 	};
 	static watchModalClosers = (e) => {
 		if (e.target.classList.contains("modal-close")) {
 			let target = this.hasTarget(e.target, "data-target");
-			let modal = target.getAttribute("data-target");
-			document.getElementById(modal).style.display = "none";
+			let modal = document.getElementById(target.getAttribute("data-target"));
+			if (modal.id === "lightbox") {
+				const carouselItems = document.getElementsByClassName(
+					"carousel__image--active"
+				);
+				carouselItems[0].classList.remove("carousel__image--active");
+			}
+			modal.style.display = "none";
 		}
 	};
-	static watchLikes = (e,store,router) => {
+	static watchLikes = (e, store, router) => {
 		if (e.target.classList.contains("like-button")) {
-			e.stopPropagation();
+			// e.stopPropagation();
 			let target = this.hasTarget(e.target, "data-target");
-		
 			let media = target.getAttribute("data-target");
 			store.addLike(media);
 			const pathname = window.location.pathname.split("/");
@@ -98,6 +105,13 @@ class EventsManager {
 				store.data.sortBy
 			);
 			router.render(router.routes[window.location.pathname]);
+		}
+	};
+	static watchCarousel = (e) => {
+		if (e.target.classList.contains("carousel-controls")) {
+			e.preventDefault();
+			let target = this.hasTarget(e.target, "href");
+			Carousel.setActive(target.getAttribute("href"));
 		}
 	}
 }

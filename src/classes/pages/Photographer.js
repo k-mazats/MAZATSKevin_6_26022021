@@ -75,7 +75,7 @@ class Photographer {
 				${MediasGrid.init(medias, photographer, sortBy)}	
 			</section>
 			${Contact.init(photographer)}
-			${Lightbox.init(photographer)}
+			${Lightbox.init(photographer,medias)}
 			${PhotographerWidget.init(medias, photographer)}
 			`;
 		return template;

@@ -8,7 +8,11 @@ class MediasGrid {
 				);
 				break;
 			case "Date":
-				medias = data.sort((a, b) => new Date(b.data.date.replace(/-/g, "/")) - new Date(a.data.date.replace(/-/g, "/")));
+				medias = data.sort(
+					(a, b) =>
+						new Date(b.data.date.replace(/-/g, "/")) -
+						new Date(a.data.date.replace(/-/g, "/"))
+				);
 				break;
 			case "Titre":
 				medias = data.sort(function (a, b) {
@@ -26,7 +30,9 @@ class MediasGrid {
 		for (let item of medias)
 			switch (item.type) {
 				case "image":
-					template += `<div class="media-card modal-trigger" data-target="lightbox" tabIndex="0">
+					template += `<div class="media-card modal-trigger" data-target="lightbox" data-id="${
+						item.data.id
+					}" data-name="${item.getName()}" tabIndex="0">
 						<div class="media-card__upper-body modal-trigger">
 							<img
 								class="media-card__img modal-trigger"
@@ -46,7 +52,9 @@ class MediasGrid {
 					</div>`;
 					break;
 				case "video":
-					template += `<div class="media-card modal-trigger" data-target="lightbox" tabIndex="0">
+					template += `<div class="media-card modal-trigger" data-target="lightbox" data-id="${
+						item.data.id
+					}" data-name="${item.getName()}" tabIndex="0">
 						<div class="media-card__upper-body modal-trigger">
 							
 						</div>

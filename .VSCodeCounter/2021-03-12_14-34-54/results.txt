@@ -1,0 +1,76 @@
+Date : 2021-03-12 14:34:54
+Directory : e:\Documents\OpenClassrooms\P6\fishEYE
+Total : 35 files,  2703 codes, 36 comments, 221 blanks, all 2960 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| CSS        |          1 |        717 |          6 |        118 |        841 |
+| SCSS       |         15 |        710 |         18 |         49 |        777 |
+| JavaScript |         16 |        627 |         12 |         38 |        677 |
+| JSON       |          1 |        597 |          0 |          6 |        603 |
+| HTML       |          2 |         52 |          0 |         10 |         62 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                   |         35 |      2,703 |         36 |        221 |      2,960 |
+| src                                                                                 |         17 |      1,224 |         12 |         44 |      1,280 |
+| src\classes                                                                         |         13 |        564 |          0 |         23 |        587 |
+| src\classes\components                                                              |          6 |        225 |          0 |          9 |        234 |
+| src\classes\pages                                                                   |          3 |        116 |          0 |          6 |        122 |
+| src\json                                                                            |          1 |        597 |          0 |          6 |        603 |
+| styles                                                                              |         16 |      1,427 |         24 |        167 |      1,618 |
+| styles\css                                                                          |          1 |        717 |          6 |        118 |        841 |
+| styles\sass                                                                         |         15 |        710 |         18 |         49 |        777 |
+| styles\sass\base                                                                    |          2 |        226 |          7 |         16 |        249 |
+| styles\sass\components                                                              |          3 |         18 |          0 |          4 |         22 |
+| styles\sass\layout                                                                  |          4 |         81 |          0 |          8 |         89 |
+| styles\sass\pages                                                                   |          2 |        364 |         11 |         12 |        387 |
+| styles\sass\utils                                                                   |          3 |          9 |          0 |          4 |         13 |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                            | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| e:\Documents\OpenClassrooms\P6\fishEYE\404.html                                     | HTML       |         26 |          0 |          5 |         31 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\index.html                                   | HTML       |         26 |          0 |          5 |         31 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\DataStore.js                     | JavaScript |         65 |          0 |          2 |         67 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\EventsManager.js                 | JavaScript |        101 |          0 |          4 |        105 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\Medias.js                        | JavaScript |         43 |          0 |          1 |         44 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\Router.js                        | JavaScript |         14 |          0 |          1 |         15 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\Category.js           | JavaScript |         23 |          0 |          1 |         24 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\Contact.js            | JavaScript |         52 |          0 |          1 |         53 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\Lightbox.js           | JavaScript |         21 |          0 |          1 |         22 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\MediasGrid.js         | JavaScript |         68 |          0 |          2 |         70 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\PhotographerWidget.js | JavaScript |         23 |          0 |          1 |         24 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\components\PhotographersGrid.js  | JavaScript |         38 |          0 |          3 |         41 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\pages\Error.js                   | JavaScript |          8 |          0 |          1 |          9 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\pages\Home.js                    | JavaScript |         26 |          0 |          2 |         28 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\classes\pages\Photographer.js            | JavaScript |         82 |          0 |          3 |         85 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\getDatas.js                              | JavaScript |          6 |          0 |          0 |          6 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\json\FishEyeDataFR.json                  | JSON       |        597 |          0 |          6 |        603 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\main.js                                  | JavaScript |         44 |         12 |         14 |         70 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\src\mediasFactory.js                         | JavaScript |         13 |          0 |          1 |         14 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\css\main.css                          | CSS        |        717 |          6 |        118 |        841 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\base\_reset.scss                 | SCSS       |         49 |          7 |          9 |         65 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\base\_typography.scss            | SCSS       |        177 |          0 |          7 |        184 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\components\_button.scss          | SCSS       |          0 |          0 |          1 |          1 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\components\_carousel.scss        | SCSS       |          0 |          0 |          1 |          1 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\components\_category.scss        | SCSS       |         18 |          0 |          2 |         20 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\layout\_container.scss           | SCSS       |         21 |          0 |          1 |         22 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\layout\_footer.scss              | SCSS       |         22 |          0 |          2 |         24 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\layout\_header.scss              | SCSS       |         17 |          0 |          2 |         19 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\layout\nav.scss                  | SCSS       |         21 |          0 |          3 |         24 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\main.scss                        | SCSS       |         12 |          0 |          5 |         17 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\pages\_index.scss                | SCSS       |         38 |          6 |          4 |         48 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\pages\_photographer.scss         | SCSS       |        326 |          5 |          8 |        339 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\utils\_keyframes.scss            | SCSS       |          0 |          0 |          1 |          1 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\utils\_mixins.scss               | SCSS       |          9 |          0 |          2 |         11 |
+| e:\Documents\OpenClassrooms\P6\fishEYE\styles\sass\utils\_variables.scss            | SCSS       |          0 |          0 |          1 |          1 |
+| Total                                                                               |            |      2,703 |         36 |        221 |      2,960 |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
