@@ -11,6 +11,13 @@ class EventsManager {
 			this.watchLikes(e, store, router);
 			this.watchCarousel(e);
 		});
+		document.addEventListener("keypress", (e) => {
+				if (e.key === "Enter") {
+					console.log(e.target);
+					let target = e.target;
+					this.watchLikes(e, store, router);
+				}
+			});
 		window.onpopstate = () => {
 			router.render(router.routes[window.location.pathname]);
 		};
@@ -70,30 +77,39 @@ class EventsManager {
 			e.target.classList.contains("modal-trigger") &&
 			!e.target.classList.contains("fas-heart")
 		) {
+			e.preventDefault();
 			let target = this.hasTarget(e.target, "data-target");
 			let modal = document.getElementById(target.getAttribute("data-target"));
 			if (modal.id === "lightbox") {
 				Carousel.startCarousel(target);
 			}
 			modal.style.display = "flex";
+			let backgroundElements = document.getElementsByClassName("background-element");
+			for(let element of backgroundElements){
+				element.setAttribute("tabindex","-1");
+			}
 		}
 	};
 	static watchModalClosers = (e) => {
 		if (e.target.classList.contains("modal-close")) {
+			e.preventDefault();
 			let target = this.hasTarget(e.target, "data-target");
 			let modal = document.getElementById(target.getAttribute("data-target"));
 			if (modal.id === "lightbox") {
-				const carouselItems = document.getElementsByClassName(
-					"carousel__image--active"
-				);
-				carouselItems[0].classList.remove("carousel__image--active");
+				Carousel.closeCarousel();
 			}
 			modal.style.display = "none";
+			let backgroundElements = document.getElementsByClassName(
+				"background-element"
+			);
+			for (let element of backgroundElements) {
+				element.setAttribute("tabindex", "0");
+			}
 		}
 	};
 	static watchLikes = (e, store, router) => {
 		if (e.target.classList.contains("like-button")) {
-			// e.stopPropagation();
+			e.preventDefault();
 			let target = this.hasTarget(e.target, "data-target");
 			let media = target.getAttribute("data-target");
 			store.addLike(media);

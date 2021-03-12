@@ -6,7 +6,7 @@ import PhotographerWidget from "/src/classes/components/PhotographerWidget.js";
 class Photographer {
 	static init = (photographer, medias, sortBy) => {
 		const template = `<header role="banner" class="header">
-				<a href="../index.html" class="header__link router-link">
+				<a href="../index.html" class="header__link router-link background-element">
 					<img
 						src="../img/logo-fisheye.png"
 						alt="Fisheye Homepage"
@@ -31,7 +31,7 @@ class Photographer {
 					</div>
 				</div>
 				<div class="photographer-infos__contact-wrap">
-					<button class="photographer-infos__contact modal-trigger" data-target="contact">Contactez-moi</button>
+					<button class="photographer-infos__contact modal-trigger background-element" data-target="contact">Contactez-moi</button>
 				</div>
 				<div class="photographer-infos__img">
 					<img
@@ -49,7 +49,7 @@ class Photographer {
 					</span>
 					<button
 						id="sortMediaButton"
-						class="photographer-medias__sort-button dropdown-button"
+						class="photographer-medias__sort-button dropdown-button background-element"
 						aria-haspopup="listbox"
 						aria-labelledby="sortMediasLabel"
 					>
@@ -75,7 +75,7 @@ class Photographer {
 				${MediasGrid.init(medias, photographer, sortBy)}	
 			</section>
 			${Contact.init(photographer)}
-			${Lightbox.init(photographer,medias)}
+			${Lightbox.init(photographer, medias)}
 			${PhotographerWidget.init(medias, photographer)}
 			`;
 		return template;

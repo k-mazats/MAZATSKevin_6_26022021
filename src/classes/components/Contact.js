@@ -2,7 +2,9 @@ class Contact {
 	static init = (data) => {
 		const template = `<div class="contact-modal" id="contact" hidden>
 				<div class="contact-modal__wrap">
-					<i class="fas fa-times contact-modal__close modal-close" data-target="contact"></i>
+					<a href="" class="modal-close" data-target="contact">
+						<i class="fas fa-times contact-modal__close modal-close"></i>
+					</a>
 					<div class="contact-form">
 						<h1 class="contact-form__title">Contactez- moi<br />${data.name}</h1>
 						<form action="" class="contact-form__form">

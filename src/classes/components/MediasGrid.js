@@ -30,7 +30,7 @@ class MediasGrid {
 		for (let item of medias)
 			switch (item.type) {
 				case "image":
-					template += `<div class="media-card modal-trigger" data-target="lightbox" data-id="${
+					template += `<a href="" class="media-card modal-trigger background-element" data-target="lightbox" data-id="${
 						item.data.id
 					}" data-name="${item.getName()}" tabIndex="0">
 						<div class="media-card__upper-body modal-trigger">
@@ -45,14 +45,14 @@ class MediasGrid {
 							<p class="media-card__price modal-trigger">${item.data.price} €</p>
 							<p class="media-card__like modal-trigger">${
 								item.data.likes
-							} <i class="fas fa-heart like-button" data-target="${
+							} <i class="fas fa-heart like-button background-element" data-target="${
 						item.data.id
-					}"></i></p>
+					}" tabIndex="0"></i></p>
 						</div>
-					</div>`;
+					</a>`;
 					break;
 				case "video":
-					template += `<div class="media-card modal-trigger" data-target="lightbox" data-id="${
+					template += `<a href="" class="media-card modal-trigger background-element" data-target="lightbox" data-id="${
 						item.data.id
 					}" data-name="${item.getName()}" tabIndex="0">
 						<div class="media-card__upper-body modal-trigger">
@@ -63,11 +63,11 @@ class MediasGrid {
 							<p class="media-card__price modal-trigger">${item.data.price} €</p>
 							<p class="media-card__like modal-trigger">${
 								item.data.likes
-							} <i class="fas fa-heart like-button" data-target="${
+							} <i class="fas fa-heart like-button background-element" data-target="${
 						item.data.id
-					}"></i></p>
+					}" tabIndex="0"></i></p>
 						</div>
-					</div>`;
+					</a>`;
 					break;
 			}
 		template += `</div>`;

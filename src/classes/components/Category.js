@@ -9,12 +9,12 @@ class Category {
 				return items;
 			case "grid":
 				for (let item of data) {
-					items += `<li class="user__categories-item"><a href="../category/${item}" class="user__categories-link router-link">${item}</a></li>`;
+					items += `<li class="user__categories-item"><a href="../category/${item}" class="user__categories-link router-link background-element">${item}</a></li>`;
 				}
 				return items;
 			case "photographer":
 				for (let item of data) {
-					items += `<li class="photographer-infos__categories-item"><a href="../category/${item}" class="photographer-infos__categories-link router-link">${item}</a></li>`;
+					items += `<li class="photographer-infos__categories-item"><a href="../category/${item}" class="photographer-infos__categories-link router-link background-element">${item}</a></li>`;
 				}
 				return items;
 		}

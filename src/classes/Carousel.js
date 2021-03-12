@@ -43,4 +43,10 @@ export default class Carousel {
 		}
 		this.setName();
 	};
+    static closeCarousel = () => {
+        const carouselItems = document.getElementsByClassName(
+					"carousel__image--active"
+				);
+				carouselItems[0].classList.remove("carousel__image--active");
+    }
 }
