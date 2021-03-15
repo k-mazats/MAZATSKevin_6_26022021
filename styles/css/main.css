@@ -681,7 +681,7 @@ html {
   position: fixed;
   z-index: 1000;
   background: rgba(196, 196, 196, 0.4);
-  width: 100%;
+  width: calc(100% + 3rem);
   height: 100vh;
   margin-left: -3rem;
   overflow-y: auto;
@@ -693,6 +693,7 @@ html {
   position: relative;
   width: 30%;
   margin-top: 3rem;
+  margin-bottom: 3rem;
   border-radius: 5px;
   background: #db8876;
 }
@@ -700,15 +701,16 @@ html {
 @media (max-width: 1024px) {
   .contact-modal__wrap {
     width: 50%;
-    height: 92.5%;
   }
 }
 
 @media (max-width: 428px) {
   .contact-modal__wrap {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 2.5rem);
+    min-height: 100vh;
     border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -771,12 +773,18 @@ html {
 .lightbox-modal {
   position: fixed;
   z-index: 1000;
-  width: 100%;
+  width: calc(100% + 3rem);
   height: 100%;
   background: #e5e5e5;
   margin-left: -3rem;
   justify-content: center;
   align-items: flex-end;
+}
+
+@media (max-width: 428px) {
+  .lightbox-modal {
+    align-items: center;
+  }
 }
 
 .lightbox-modal__wrap {
@@ -789,9 +797,24 @@ html {
   position: relative;
 }
 
+@media (max-width: 428px) {
+  .lightbox-modal__wrap {
+    height: calc(100% / 3);
+    width: calc(100% - 3rem);
+  }
+}
+
 .lightbox-modal__img-wrap {
   width: calc(100% - 11.75rem);
   height: calc(100% - 5.25rem);
+}
+
+@media (max-width: 428px) {
+  .lightbox-modal__img-wrap {
+    height: calc(100% - 2.438rem);
+    font-size: 0.827rem;
+    width: calc(100% - 3rem - 3ch);
+  }
 }
 
 .lightbox-modal__img {
@@ -810,6 +833,12 @@ html {
   align-items: center;
 }
 
+@media (max-width: 428px) {
+  .lightbox-modal__title-wrap {
+    height: 1.125rem;
+  }
+}
+
 .lightbox-modal__title {
   text-align: left;
 }
@@ -825,10 +854,24 @@ html {
   font-size: 2.625rem;
 }
 
+@media (max-width: 428px) {
+  .lightbox-modal__close {
+    font-size: 0.827rem;
+    width: 3ch;
+  }
+}
+
 .lightbox-modal__previous, .lightbox-modal__next {
   width: 5.875rem;
   color: #911c1c;
   font-size: 3rem;
+}
+
+@media (max-width: 428px) {
+  .lightbox-modal__previous, .lightbox-modal__next {
+    font-size: 0.827rem;
+    width: 3ch;
+  }
 }
 
 .photographer-widget {

@@ -187,7 +187,7 @@
 	position: fixed;
 	z-index: 1000;
 	background: rgba(196, 196, 196, 0.4);
-	width: 100%;
+	width: calc(100% + 3rem);
 	height: 100vh;
 	margin-left: -3rem;
 	overflow-y: auto;
@@ -198,16 +198,18 @@
 		position: relative;
 		width: 30%;
 		margin-top: 3rem;
+		margin-bottom: 3rem;
 		border-radius: 5px;
 		background: #db8876;
 		@media (max-width: 1024px) {
 			width: 50%;
-			height: 92.5%;
 		}
 		@media (max-width: 428px) {
-			width: 100%;
-			height: 100%;
+			width: calc(100% - 2.5rem);
+			min-height: 100vh;
 			border-radius: 0;
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 	}
 	&__close {
@@ -264,13 +266,16 @@
 .lightbox-modal {
 	position: fixed;
 	z-index: 1000;
-	width: 100%;
+	width: calc(100% + 3rem);
 	height: 100%;
 	background: #e5e5e5;
 	margin-left: -3rem;
 	// display: flex;
 	justify-content: center;
 	align-items: flex-end;
+	@media(max-width:428px){
+			align-items: center;
+		}
 
 	&__wrap {
 		height: calc(100% - 2.5rem);
@@ -280,10 +285,19 @@
 		align-items: center;
 		flex-wrap: wrap;
 		position: relative;
+		@media(max-width:428px){
+			height: calc(100% / 3);
+			width: calc(100% - 3rem);
+		}
 	}
 	&__img-wrap {
 		width: calc(100% - 11.75rem);
 		height: calc(100% - 5.25rem);
+		@media(max-width:428px){
+			height: calc(100% - 2.438rem);
+			font-size: 0.827rem;
+			width: calc(100% - 3rem - 3ch);
+		}
 	}
 	&__img {
 		width: 100%;
@@ -300,6 +314,9 @@
 		height: 3.875rem;
 		display: flex;
 		align-items: center;
+		@media(max-width:428px){
+			height: 1.125rem;
+		}
 	}
 	&__title {
 		text-align: left;
@@ -313,12 +330,20 @@
 		border: none;
 		color: #911c1c;
 		font-size: 2.625rem;
+		@media(max-width:428px){
+			font-size: 0.827rem;
+			width: 3ch;
+		}
 	}
 	&__previous,
 	&__next {
 		width: 5.875rem;
 		color: #911c1c;
 		font-size: 3rem;
+		@media(max-width:428px){
+			font-size: 0.827rem;
+			width: 3ch;
+		}
 	}
 }
 .photographer-widget {

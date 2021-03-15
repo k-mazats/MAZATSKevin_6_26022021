@@ -98,6 +98,7 @@ class EventsManager {
 			for (let element of backgroundElements) {
 				element.setAttribute("tabindex", "-1");
 			}
+			document.body.style.overflowY = "hidden";
 		}
 	};
 	static watchModalClosers = (e) => {
@@ -116,6 +117,7 @@ class EventsManager {
 			for (let element of backgroundElements) {
 				element.setAttribute("tabindex", "0");
 			}
+			document.body.style.overflowY = "scroll";
 		}
 	};
 	static closeModals = (e) => {
