@@ -74,8 +74,10 @@ class EventsManager {
 	static closeDropdown = (e) => {
 		if (e.target.classList.contains("dropdown-content")) {
 			const dropdownContent = document.getElementById("sortMediaList");
+			const dropdownButton = document.querySelector(".dropdown-button");
 			dropdownContent.style.display = "none";
 			dropdownContent.tabIndex = "-1";
+			dropdownButton.focus();
 		}
 	};
 	static watchModalTriggers = (e) => {

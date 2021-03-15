@@ -41,7 +41,7 @@ body {
   padding: 0 3rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   body {
     padding: 0 1.25rem;
   }
@@ -198,7 +198,7 @@ html {
   line-height: 1.938rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .page-title,
   .user__name {
     font-size: 0.875rem;
@@ -312,7 +312,7 @@ html {
   max-height: 3rem;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .header {
     width: 50%;
     order: 1;
@@ -326,14 +326,14 @@ html {
   justify-content: center;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .nav {
     order: 3;
     width: 100%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .nav {
     padding: 0;
   }
@@ -385,7 +385,7 @@ html {
   width: 25%;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .page-title {
     width: 50%;
     order: 2;
@@ -397,7 +397,7 @@ html {
   display: flex;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .section {
     order: 4;
   }
@@ -416,13 +416,13 @@ html {
   min-height: 450px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .user {
     width: 50%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .user {
     width: 100%;
   }
@@ -470,7 +470,7 @@ html {
   text-align: left;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .photographer-infos__details {
     padding-left: 3.5%;
     width: calc(100% / 3 * 2);
@@ -481,7 +481,7 @@ html {
   text-align: left;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .photographer-infos__contact-wrap {
     position: fixed;
     bottom: 2rem;
@@ -505,7 +505,7 @@ html {
   padding-right: 3.5%;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .photographer-infos__img .user__img {
     width: 29vw;
     height: 29vw;
@@ -536,7 +536,7 @@ html {
   position: relative;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .photographer-medias__sort-wrap {
     display: none;
   }
@@ -601,7 +601,14 @@ html {
   place-items: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  .photographer-medias__grid {
+    grid-template-columns: 48.25% 48.25%;
+    grid-auto-rows: 250px;
+  }
+}
+
+@media (max-width: 428px) {
   .photographer-medias__grid {
     display: flex;
     flex-direction: column;
@@ -614,7 +621,7 @@ html {
   max-width: 350px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .media-card {
     max-width: none;
   }
@@ -631,14 +638,14 @@ html {
   border-radius: 5px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .media-card__img {
     width: 100%;
     height: 200px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .media-card__img {
     width: 100%;
     height: 200px;
@@ -675,27 +682,29 @@ html {
   z-index: 1000;
   background: rgba(196, 196, 196, 0.4);
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  margin-left: -3rem;
+  overflow-y: auto;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .contact-modal__wrap {
   position: relative;
   width: 30%;
-  height: 92.5%;
+  margin-top: 3rem;
   border-radius: 5px;
   background: #db8876;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .contact-modal__wrap {
     width: 50%;
     height: 92.5%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
   .contact-modal__wrap {
     width: 100%;
     height: 100%;
@@ -719,7 +728,6 @@ html {
 
 .contact-form {
   width: 100%;
-  height: 100%;
   padding: 2.375rem 2.188rem;
 }
 
@@ -728,7 +736,6 @@ html {
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: calc(100% - 10.416rem);
 }
 
 .contact-form__form label {
@@ -767,6 +774,7 @@ html {
   width: 100%;
   height: 100%;
   background: #e5e5e5;
+  margin-left: -3rem;
   justify-content: center;
   align-items: flex-end;
 }
@@ -836,7 +844,7 @@ html {
   border-top-right-radius: 5px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1024px) {
   .photographer-widget {
     display: none;
   }

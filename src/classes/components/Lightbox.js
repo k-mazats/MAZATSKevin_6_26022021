@@ -23,7 +23,7 @@ class Lightbox {
 						alt=""
 						class="lightbox-modal__img carousel__image"
 						data-id="${media.data.id}"
-						data-name="${media.getName()}"
+						data-name="${media.data.alt}"
 					/>`;
 					break;
 					case "video":

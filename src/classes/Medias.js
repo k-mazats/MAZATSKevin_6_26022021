@@ -8,13 +8,6 @@ class Image extends Media {
 	constructor(data) {
 		super("image", data);
 	}
-	getName = () => {
-		const fileName = this.data.image.replace(/_|-/g, " ");
-		const indexExtension = fileName.indexOf(".");
-		const indexName = fileName.indexOf(" ")
-		const name = fileName.substring(indexName,indexExtension);
-		return name;
-	}
 	getFolder = (data) => {
 		const photographer = data.name;
 		const index = photographer.indexOf(" ");
@@ -26,13 +19,6 @@ class Video extends Media {
 	constructor(data) {
 		super("video", data);
 	}
-	getName = () => {
-		const fileName = this.data.video.replace(/_|-/g, " ");
-		const indexExtension = fileName.indexOf(".");
-		const indexName = fileName.indexOf(" ");
-		const name = fileName.substring(indexName, indexExtension);
-		return name;
-	};
 	getFolder = (data) => {
 		const photographer = data.name;
 		const index = photographer.indexOf(" ");
