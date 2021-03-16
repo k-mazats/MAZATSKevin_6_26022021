@@ -63,3 +63,14 @@ a{
   color:inherit;
   text-decoration: none;
 }
+
+.sr-only{
+  @media screen {
+    display: none;
+  }
+}
+.screen-only{
+  @media speech {
+    display: none;
+  }
+}

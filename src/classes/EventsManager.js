@@ -11,13 +11,16 @@ class EventsManager {
 			this.watchLikes(e, store, router);
 			this.watchCarousel(e);
 		});
-		document.addEventListener("keydown", (e) => {
+		document.addEventListener("keyup", (e) => {
 			if (e.key === "Enter") {
 				this.watchLikes(e, store, router);
 			}
 			if (e.key === "Escape") {
 				this.closeDropdown(e);
 				this.closeModals(e);
+			}
+			if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+				this.watchArrow(e);
 			}
 		});
 		window.onpopstate = () => {
@@ -47,9 +50,12 @@ class EventsManager {
 	};
 	static watchDropdownButton = (e) => {
 		if (e.target.classList.contains("dropdown-button")) {
+			document
+				.getElementById("sortMediaButton")
+				.setAttribute("aria-expanded", "true");
 			const dropdownLi = document.getElementsByClassName("dropdown-content");
 			const dropdownContent = document.getElementById("sortMediaList");
-			dropdownContent.style.display = "block			";
+			dropdownContent.style.display = "block";
 			for (let content of dropdownLi) {
 				content.tabIndex = "0";
 			}
@@ -77,6 +83,9 @@ class EventsManager {
 			const dropdownButton = document.querySelector(".dropdown-button");
 			dropdownContent.style.display = "none";
 			dropdownContent.tabIndex = "-1";
+			document
+				.getElementById("sortMediaButton")
+				.setAttribute("aria-expanded", "false");
 			dropdownButton.focus();
 		}
 	};
@@ -99,34 +108,24 @@ class EventsManager {
 				element.setAttribute("tabindex", "-1");
 			}
 			document.body.style.overflowY = "hidden";
+			this.lastFocus = e.target;
+
+			document.querySelector(`.${modal.id}-modal__close`).focus();
 		}
 	};
 	static watchModalClosers = (e) => {
 		if (e.target.classList.contains("modal-close")) {
-			console.log(1);
 			e.preventDefault();
-			let target = this.hasTarget(e.target, "data-target");
-			let modal = document.getElementById(target.getAttribute("data-target"));
-			if (modal.id === "lightbox") {
-				Carousel.closeCarousel();
-			}
-			modal.style.display = "none";
-			let backgroundElements = document.getElementsByClassName(
-				"background-element"
-			);
-			for (let element of backgroundElements) {
-				element.setAttribute("tabindex", "0");
-			}
-			document.body.style.overflowY = "scroll";
+			this.closeModals();
 		}
 	};
-	static closeModals = (e) => {
+	static closeModals = () => {
 		const backgroundElements = document.getElementsByClassName(
 			"background-element"
 		);
 		const modals = document.getElementsByClassName("modal");
 		for (let modal of modals) {
-			if (modal.style.display !== "none") {
+			if (modal.style.display === "flex") {
 				if (modal.id === "lightbox") {
 					Carousel.closeCarousel();
 				}
@@ -134,7 +133,30 @@ class EventsManager {
 				for (let element of backgroundElements) {
 					element.setAttribute("tabindex", "0");
 				}
+				if (modal.id === "contact") {
+					document.querySelector(".photographer-infos__contact").focus();
+				}
+				document.body.style.overflowY = "scroll";
+				this.giveFocusBack();
 			}
+		}
+	};
+	static giveFocusBack = () => {
+		switch (this.lastFocus.getAttribute("data-target")) {
+			case "lightbox":
+				const triggers = document.querySelectorAll("a.media-card");
+				for (let trigger of triggers) {
+					if (
+						trigger.getAttribute("data-id") ===
+						this.lastFocus.getAttribute("data-id")
+					) {
+						trigger.focus();
+					}
+				}
+				break;
+			case "contact":
+				document.querySelector(".photographer-infos__contact").focus();
+				break;
 		}
 	};
 	static watchLikes = (e, store, router) => {
@@ -151,6 +173,17 @@ class EventsManager {
 				store.data.sortBy
 			);
 			router.render(router.routes[window.location.pathname]);
+		}
+	};
+	static watchArrow = (e) => {
+		if (document.getElementById("lightbox").style.display === "flex") {
+			switch (e.key) {
+				case "ArrowRight":
+					Carousel.setActive("forward");
+					break;
+				case "ArrowLeft":
+					Carousel.setActive("backward");
+			}
 		}
 	};
 	static watchCarousel = (e) => {

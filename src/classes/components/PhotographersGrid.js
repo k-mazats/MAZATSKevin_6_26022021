@@ -9,7 +9,7 @@ class PhotographersGrid {
 						<img
 							class="user__img router-link"
 							src="../img/Sample Photos/Photographers ID Photos/${item.portrait}"
-							alt=""
+							alt="Portrait ${item.name}"
 						/>
 						<h2 class="user__name router-link">${item.name}</h2>
 					</a>
@@ -27,7 +27,7 @@ class PhotographersGrid {
 					<div class="user__categories">
 						<ul class="user__categories-list">
 							<li class="user__categories-item">
-								${Category.init("grid",item.tags)}
+								${Category.init("grid", item.tags)}
 							</li>
 						</ul>
 					</div>

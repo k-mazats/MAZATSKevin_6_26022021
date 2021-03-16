@@ -37,7 +37,7 @@ class Photographer {
 					<img
 						class="user__img"
 						src="../img/Sample Photos/Photographers ID Photos/${photographer.portrait}"
-						alt=""
+						alt="Portrait ${photographer.name}"
 					/>
 				</div>
 			</section>
@@ -52,6 +52,7 @@ class Photographer {
 						class="photographer-medias__sort-button dropdown-button background-element"
 						aria-haspopup="listbox"
 						aria-labelledby="sortMediasLabel"
+						aria-expanded="false"
 					>
 						${sortBy}
 					</button>

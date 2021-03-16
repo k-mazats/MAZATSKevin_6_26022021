@@ -48,8 +48,7 @@ import Error from "/src/classes/pages/Error.js";
 	};
 	const dynRoutes = await addDynRoutes(
 		store.getAllPhotographersId(),
-		store.getAllTags(),
-		store
+		store.getAllTags()
 	);
 	//merging
 	const routes = { ...staticsRoutes, ...dynRoutes };
