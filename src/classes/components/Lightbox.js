@@ -37,6 +37,15 @@ class Lightbox {
 					/>`;
 					break;
 				case "video":
+					template += `<img 
+						role="tabpanel"
+						src="../img/Sample Photos/${media.getFolder(photographer)}/${media.getThumbnail()}"
+						alt="${media.data.alt}"
+						class="lightbox-modal__img carousel__image"
+						data-id="${media.data.id}"
+						data-name="${media.data.alt}"
+						aria-hidden="true"
+					/>`;
 					break;
 			}
 		}

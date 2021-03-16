@@ -25,5 +25,9 @@ class Video extends Media {
 		const folder = photographer.substring(0, index).replace(/_|-/g, " ");
 		return folder;
 	};
+	getThumbnail = () => {
+		const file = this.data.video;
+		return `${file.substring(0,file.length - 3)}jpg`
+	}
 }
 export {Image, Video };
