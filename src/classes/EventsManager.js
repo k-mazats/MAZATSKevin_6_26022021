@@ -1,6 +1,9 @@
 import Carousel from "/src/classes/Carousel.js";
 import Photographer from "/src/classes/pages/Photographer.js";
 class EventsManager {
+	constructor(){
+		this.lastScrollPosition = 0;
+	}
 	static watch = (router, store) => {
 		document.addEventListener("click", (e) => {
 			this.watchRouterLinks(e, router);
@@ -23,6 +26,9 @@ class EventsManager {
 				this.watchArrow(e);
 			}
 		});
+		document.addEventListener("scroll", (e) => {
+			this.watchContentLink();
+		})
 		window.onpopstate = () => {
 			router.render(router.routes[window.location.pathname]);
 		};
@@ -48,6 +54,15 @@ class EventsManager {
 			this.onNavClick(router, route);
 		}
 	};
+	static watchContentLink = () => {
+		let scrollPosition = window.scrollY;
+		if (scrollPosition > this.lastScrollPosition) {
+			document.querySelector(".scroll-to-content").style.display = "block";
+		} else if (scrollPosition === 0) {
+			document.querySelector(".scroll-to-content").style.display = "none";
+		}
+		this.lastScrollPosition = scrollPosition;
+	}
 	static watchDropdownButton = (e) => {
 		if (e.target.classList.contains("dropdown-button")) {
 			document
@@ -67,12 +82,16 @@ class EventsManager {
 			e.preventDefault();
 			this.closeDropdown(e);
 			store.data.sortBy = e.target.innerHTML;
+			
+			store.data.sortById = e.target.id;
+			console.log(store.data.sortById);
 			const pathname = window.location.pathname.split("/");
 			const id = parseInt(pathname[2]);
 			router.routes[window.location.pathname] = Photographer.init(
 				store.getPhotographerById(id),
 				store.getMediasByPhotographerId(id),
-				store.data.sortBy
+				store.data.sortBy,
+				store.data.sortById
 			);
 			router.render(router.routes[window.location.pathname]);
 		}
@@ -170,7 +189,8 @@ class EventsManager {
 			router.routes[window.location.pathname] = Photographer.init(
 				store.getPhotographerById(id),
 				store.getMediasByPhotographerId(id),
-				store.data.sortBy
+				store.data.sortBy,
+				store.data.sortById
 			);
 			router.render(router.routes[window.location.pathname]);
 		}

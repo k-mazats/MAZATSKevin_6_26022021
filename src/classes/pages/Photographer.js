@@ -4,7 +4,7 @@ import Contact from "/src/classes/components/Contact.js";
 import Lightbox from "/src/classes/components/Lightbox.js";
 import PhotographerWidget from "/src/classes/components/PhotographerWidget.js";
 class Photographer {
-	static init = (photographer, medias, sortBy) => {
+	static init = (photographer, medias, sortBy, sortById) => {
 		const template = `<header role="banner" class="header">
 				<a href="../index.html" class="header__link router-link background-element">
 					<img
@@ -50,8 +50,9 @@ class Photographer {
 					<button
 						id="sortMediaButton"
 						class="photographer-medias__sort-button dropdown-button background-element"
+						role="button"
 						aria-haspopup="listbox"
-						aria-labelledby="sortMediasLabel"
+						
 						aria-expanded="false"
 					>
 						${sortBy}
@@ -61,15 +62,17 @@ class Photographer {
 						class="photographer-medias__sort-list dropdown-content"
 						tabindex="-1"
 						role="listbox"
-						aria-labelledby="exp_elem"
+						aria-labelledby="sortMediasLabel"
+						aria-activedescendant="${sortById}"
 					>
-						<li class="photographer-medias__sort-option" role="option">
-							<a href="" class="photographer-medias__sort-option-link dropdown-content">Popularité</a>
+						<li class="photographer-medias__sort-option">
+							<a  id="sortByPopularity"href="" class="photographer-medias__sort-option-link dropdown-content" role="option">Popularité</a>
 						</li>
-						<li class="photographer-medias__sort-option" role="option">
-							<a href="" class="photographer-medias__sort-option-link dropdown-content">Date</a>
-						</li><li class="photographer-medias__sort-option" role="option">
-							<a href="" class="photographer-medias__sort-option-link dropdown-content">Titre</a>
+						<li class="photographer-medias__sort-option">
+							<a id="sortByDate" href="" class="photographer-medias__sort-option-link dropdown-content" role="option">Date</a>
+						</li>
+						<li class="photographer-medias__sort-option">
+							<a id="sortByTitle" href="" class="photographer-medias__sort-option-link dropdown-content" role="option">Titre</a>
 						</li>
 					</ul>
 				</div>

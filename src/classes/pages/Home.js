@@ -1,4 +1,5 @@
 import Category from "/src/classes/components/Category.js";
+import ContentLink from "/src/classes/components/ContentLink.js";
 import PhotographersGrid from "/src/classes/components/PhotographersGrid.js";
 class Home {
 	static init = (tags, photographers) => {
@@ -16,6 +17,7 @@ class Home {
 					${Category.init("nav",tags)}
 				</ul>
 			</nav>
+			${ContentLink.init()}
 			<h1 class="page-title">Nos photographes</h1>
 			<section class="section">
 			${PhotographersGrid.init(photographers)}

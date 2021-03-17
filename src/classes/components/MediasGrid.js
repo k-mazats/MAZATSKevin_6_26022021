@@ -65,7 +65,7 @@ class MediasGrid {
 							/>
 						</div>
 						<div class="media-card__lower-body modal-trigger">
-							<p class="media-card__title modal-trigger" lang="en">${item.data.alt}</p>
+							<p class="media-card__title modal-trigger" lang="en">${item.data.alt} (video)</p>
 							<p class="media-card__price modal-trigger">${item.data.price} €</p>
 							<p class="media-card__like modal-trigger">${
 								item.data.likes

@@ -15,7 +15,7 @@ class Lightbox {
 					)}</div>
 					<a href="forward" class="lightbox-modal__next carousel-controls"><i class="fas fa-chevron-right carousel-controls"></i></a>
 					<div class="lightbox-modal__title-wrap">
-						<p class="lightbox-modal__title"></p>
+						<p class="lightbox-modal__title" lang="en"></p>
 					</div>
 				</div>
 			</div>`;
@@ -43,7 +43,7 @@ class Lightbox {
 						alt="${media.data.alt}"
 						class="lightbox-modal__img carousel__image"
 						data-id="${media.data.id}"
-						data-name="${media.data.alt}"
+						data-name="${media.data.alt} (video)"
 						aria-hidden="true"
 					/>`;
 					break;

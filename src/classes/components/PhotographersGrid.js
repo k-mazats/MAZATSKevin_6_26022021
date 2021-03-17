@@ -21,7 +21,7 @@ class PhotographersGrid {
 							<p>${item.tagline}</p>
 						</span>
 						<span class="user__infos-price">
-							<p>${item.price} €</p>
+							<p>${item.price} €/jour</p>
 						</span>
 					</div>
 					<div class="user__categories">
