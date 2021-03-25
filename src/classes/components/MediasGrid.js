@@ -45,11 +45,14 @@ class MediasGrid {
 							<p class="media-card__price modal-trigger">${item.data.price} €</p>
 							<p class="media-card__like modal-trigger">${
 								item.data.likes
-							} </p><p class="media-card__like-button fas fa-heart like-button background-element screen-only" data-target="${
+								}
+								<span class="sr-only" lang="en">Likes</span>
+								</p>
+							<p class="media-card__like-button fas fa-heart like-button background-element screen-only" data-target="${
 						item.data.id
-					}" tabIndex="0"><p class="media-card__like-button like-button background-element sr-only" data-target="${
+					}" tabIndex="0"><button class="media-card__like-button like-button background-element sr-only" data-target="${
 						item.data.id
-					}" tabIndex="0"></p>
+					}" tabIndex="0" lang="en">Aimer</button>
 						</div>
 					</a>`;
 					break;

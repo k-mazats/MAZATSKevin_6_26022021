@@ -17,8 +17,8 @@ class Photographer {
 			<section class="section photographer-infos">
 				<div class="photographer-infos__details">
 					<h1 class="photographer-infos__name">${photographer.name}</h1>
-					<span class="photographer-infos__location">
-						<p>${photographer.city}</p>
+					<span class="photographer-infos__location" lang="en">
+						<p>${photographer.city}, ${photographer.country}</p>
 					</span>
 					<span class="photographer-infos__catchphrase">
 						<p>${photographer.tagline}</p>
@@ -26,7 +26,6 @@ class Photographer {
 					<div class="photographer-infos__categories">
 						<ul class="photographer-infos__categories-list">
 							${Category.init("photographer", photographer.tags)}
-							
 						</ul>
 					</div>
 				</div>
@@ -41,7 +40,6 @@ class Photographer {
 					/>
 				</div>
 			</section>
-
 			<section class="section photographer-medias">
 				<div class="photographer-medias__sort-wrap">
 					<span id="sortMediasLabel" class="photographer-medias__sort-label">
@@ -52,7 +50,6 @@ class Photographer {
 						class="photographer-medias__sort-button dropdown-button background-element"
 						role="button"
 						aria-haspopup="listbox"
-						
 						aria-expanded="false"
 					>
 						${sortBy}

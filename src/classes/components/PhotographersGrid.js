@@ -14,8 +14,8 @@ class PhotographersGrid {
 						<h2 class="user__name router-link">${item.name}</h2>
 					</a>
 					<div class="user__infos">
-						<span class="user__infos-location">
-							<p>${item.city}</p>
+						<span class="user__infos-location" lang="en">
+							<p>${item.city}, ${item.country}</p>
 						</span>
 						<span class="user__infos-catchphrase">
 							<p>${item.tagline}</p>

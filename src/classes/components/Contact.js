@@ -10,7 +10,7 @@ class Contact {
 					</a>
 					<div class="contact-form">
 						<h1 class="contact-form__title">Contactez- moi<br />${data.name}</h1>
-						<form action="" class="contact-form__form">
+						<form class="contact-form__form">
 							<label for="firstName" class="contact-form__label">
 								Prénom
 								<input
@@ -46,7 +46,7 @@ class Contact {
 									class="contact-form__textarea"
 								></textarea>
 							</label>
-							<button type="submit" class="contact-form__submit">Envoyer</button>
+							<button class="contact-form__submit">Envoyer</button>
 						</form>
 					</div>
 				</div>
