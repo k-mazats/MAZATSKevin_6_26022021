@@ -4,7 +4,7 @@ class PhotographerWidget {
 				<span class="photographer-widget__likes-wrap">
 					<p class="photographer-widget__likes-count">${this.getLikes(
 						medias
-					)}<i class="fas fa-heart photographer-widget__likes-button"></i></p>
+					)}<span class="fas fa-heart photographer-widget__likes-icon screen-only"></span><span class="sr-only" lang="en">Likes</span></p>
 				</span>
 				<span class="photographer-widget__price-wrap">${
 					photographer.price
