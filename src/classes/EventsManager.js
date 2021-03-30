@@ -181,7 +181,8 @@ class EventsManager {
 	static watchLikes = (e, store, router) => {
 		if (e.target.classList.contains("like-button")) {
 			e.preventDefault();
-			let target = this.hasTarget(e.target, "data-target");
+			
+ 			let target = this.hasTarget(e.target, "data-target");
 			let media = target.getAttribute("data-target");
 			store.addLike(media);
 			const pathname = window.location.pathname.split("/");

@@ -9,6 +9,7 @@ class Photographer {
 				<a href="../index.html" class="header__link router-link background-element">
 					<img
 						src="../img/logo-fisheye.png"
+						lang="en"
 						alt="Fisheye Homepage"
 						class="header__img router-link"
 					/>
@@ -51,6 +52,7 @@ class Photographer {
 						role="button"
 						aria-haspopup="listbox"
 						aria-expanded="false"
+						aria-labelledby="sortMediasLabel"
 					>
 						${sortBy}
 					</button>

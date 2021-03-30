@@ -2,16 +2,15 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  text-align: center;
-  // overflow: hidden;
+	box-sizing: border-box;
+	text-align: center;
+	// overflow: hidden;
 }
-
 
 /* Remove default padding */
 ul[class],
 ol[class] {
-  padding: 0;
+	padding: 0;
 }
 
 /* Remove default margin */
@@ -29,51 +28,49 @@ figcaption,
 blockquote,
 dl,
 dd {
-  margin: 0;
+	margin: 0;
 }
 
 /* Set core body defaults */
 body {
-  @include full-size;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  padding: 0 3rem;
-  @media (max-width: 428px) {
-  padding: 0 1.25rem;
-  }
+	@include full-size;
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	padding: 0 3rem;
+	@media (max-width: 428px) {
+		padding: 0 1.25rem;
+	}
 }
-
 
 /* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
-  list-style: none;
+	list-style: none;
 }
-
 
 /* Make images easier to work with */
 img {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 }
 
-a{
-  color:inherit;
-  text-decoration: none;
+a {
+	color: inherit;
+	text-decoration: none;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
-.sr-only{
-  @media screen {
-    display: none;
-  }
-}
-.screen-only{
-  @media speech {
-    display: none;
-  }
+// .sr-only{
+//   @media screen {
+//     display: none;
+//   }
+// }
+.screen-only {
+	@media speech {
+		display: none;
+	}
 }

@@ -67,12 +67,6 @@ button {
   cursor: pointer;
 }
 
-@media screen {
-  .sr-only {
-    display: none;
-  }
-}
-
 @media speech {
   .screen-only {
     display: none;
@@ -292,12 +286,6 @@ html {
   border: 0.5px solid #c4c4c4;
   border-radius: 12px;
   padding: 0 0.5ch;
-}
-
-.user__categories-link:before,
-.nav__link:before,
-.photographer-infos__categories-link:before {
-  content: "#";
 }
 
 .nav__item:not(:first-child),
@@ -726,6 +714,12 @@ html {
   white-space: nowrap;
 }
 
+.media-card__like-button {
+  border: none;
+  color: #911c1c;
+  background: transparent;
+}
+
 .media-card__price {
   margin: 0 1ch;
 }
@@ -952,6 +946,6 @@ html {
   justify-content: center;
 }
 
-.photographer-widget__likes-button {
+.photographer-widget__likes-icon {
   margin-left: 0.39rem;
 }

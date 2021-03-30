@@ -196,6 +196,11 @@
 		text-align: right;
 		white-space: nowrap;
 	}
+	&__like-button{
+		border: none;
+		color: #911c1c;
+		background: transparent;
+	}
 	&__price {
 		margin: 0 1ch;
 	}

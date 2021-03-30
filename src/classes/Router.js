@@ -10,5 +10,7 @@ export default class Router {
 		} else {
 			app.innerHTML = this.routes["/error"];
 		}
+		document.querySelector(".header").focus();
+		window.scrollTo(0, 0);
 	};
 }

@@ -2,12 +2,10 @@ class Contact {
 	static init = (data) => {
 		const template = `<div class="contact-modal modal" id="contact" role="dialog" aria-modal="true" aria-label="Contact" hidden>
 				<div class="contact-modal__wrap">
-					<a href="" class="fas fa-times contact-modal__close modal-close screen-only" data-target="contact">
-					
-					</a>
-					<a href="" class="contact-modal__close modal-close sr-only" data-target="contact">
-					Fermer la modale
-					</a>
+					<button class="contact-modal__close modal-close" data-target="contact">
+					<span class="fas fa-times modal-close" aria-hidden="true"></span>
+					<span class="modal-close sr-only">Fermer la modale</span>
+					</button>
 					<div class="contact-form">
 						<h1 class="contact-form__title">Contactez- moi<br />${data.name}</h1>
 						<form class="contact-form__form">

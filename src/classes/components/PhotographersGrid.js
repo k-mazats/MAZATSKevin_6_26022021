@@ -10,6 +10,7 @@ class PhotographersGrid {
 							class="user__img router-link"
 							src="../img/Sample Photos/Photographers ID Photos/${item.portrait}"
 							alt="Portrait ${item.name}"
+							aria-hidden="true"
 						/>
 						<h2 class="user__name router-link">${item.name}</h2>
 					</a>

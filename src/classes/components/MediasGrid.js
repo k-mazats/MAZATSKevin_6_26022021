@@ -16,10 +16,10 @@ class MediasGrid {
 				break;
 			case "Titre":
 				medias = data.sort(function (a, b) {
-					if (a.data[a.type] < b.data[b.type]) {
+					if (a.data.alt < b.data[b.type]) {
 						return -1;
 					}
-					if (a.data[a.type] > b.data[b.type]) {
+					if (a.data.alt > b.data[b.type]) {
 						return 1;
 					}
 					return 0;
@@ -46,22 +46,25 @@ class MediasGrid {
 							<p class="media-card__like">${item.data.likes}
 								<span class="sr-only" lang="en">Likes</span>
 								</p>
-							<p class="media-card__like-button fas fa-heart like-button background-element screen-only" data-target="${
+							<button aria-label="J'aime" class="media-card__like-button like-button background-element" data-target="${
 								item.data.id
-							}" tabIndex="0"><button class="media-card__like-button like-button background-element sr-only" data-target="${
-						item.data.id
-					}" tabIndex="0">Aimer</button>
+							}" tabIndex="0">
+							<span class="fas fa-heart like-button" aria-hidden="true"></span>
+							<span class="like-button sr-only">J'aime</span>
+							</button>
 						</div>
 					</div>`;
 					break;
 				case "video":
 					template += `<div class="media-card">
-						<a  href=""class="media-card__upper-body modal-trigger background-element" data-target="lightbox" data-id="${
+						<a  href="" class="media-card__upper-body modal-trigger background-element" data-target="lightbox" data-id="${
 							item.data.id
 						}" data-name="${item.data.alt}" tabIndex="0">
 							<img
 								class="media-card__img modal-trigger"
-								src="../img/Sample Photos/${item.getFolder(photographer)}/${item.getThumbnail()}"
+								src="../img/Sample Photos/${item.getFolder(
+									photographer
+								)}/${item.getThumbnail()}"
 								alt="${item.data.alt}"
 							/>
 						</a>
@@ -71,11 +74,13 @@ class MediasGrid {
 							<p class="media-card__like">${item.data.likes}
 								<span class="sr-only" lang="en">Likes</span>
 								</p>
-							<p class="media-card__like-button fas fa-heart like-button background-element screen-only" data-target="${
+							<button aria-label="J'aime" class="media-card__like-button like-button background-element" data-target="${
 								item.data.id
-							}" tabIndex="0"><button class="media-card__like-button like-button background-element sr-only" data-target="${
-						item.data.id
-					}" tabIndex="0">Aimer</button>
+							}" tabIndex="0">
+							<span class="fas fa-heart like-button" aria-hidden="true"></span>
+							<span class="like-button sr-only">J'aime</span>
+							</button>
+							
 						</div>
 					</div>`;
 					break;
@@ -85,3 +90,5 @@ class MediasGrid {
 	};
 }
 export default MediasGrid;
+
+

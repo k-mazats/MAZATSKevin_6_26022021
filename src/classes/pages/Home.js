@@ -3,16 +3,17 @@ import ContentLink from "/src/classes/components/ContentLink.js";
 import PhotographersGrid from "/src/classes/components/PhotographersGrid.js";
 class Home {
 	static init = (tags, photographers) => {
-		const template = `<header role="banner" class="header">
+		const template = `<header class="header">
 				<a href="../" class="header__link router-link">
 					<img
 						src="../img/logo-fisheye.png"
+						lang="en"
 						alt="Fisheye Homepage"
 						class="header__img router-link"
 					/>
 				</a>
 			</header>
-			<nav aria-label="Photographer categories" class="nav">
+			<nav aria-label="Photographer Categories" class="nav" lang="en">
 				<ul class="nav__list">
 					${Category.init("nav",tags)}
 				</ul>
